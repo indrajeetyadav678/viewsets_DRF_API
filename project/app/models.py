@@ -7,10 +7,5 @@ class RegistrationModel(models.Model):
     Number= models.IntegerField()
     Password= models.CharField(max_length=200)
     C_Password = models.CharField(max_length=200)
-
-    class Meta:
-        verbose_name='Registration'
-        db_table ='Registration'
     
-    def __str__(self):
-        return self.Name
+    

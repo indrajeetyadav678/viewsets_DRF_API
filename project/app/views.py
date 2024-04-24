@@ -1,31 +1,11 @@
-from django.shortcuts import render
 from rest_framework import viewsets
-from django.http import HttpResponse
+from .models import RegistrationModel
+from .serializers import Regist_Serializer
 
-# Create your views here.
-class UserViewSet(viewsets.ViewSet):
+
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    Example empty viewset demonstrating the standard
-    actions that will be handled by a router class.
-
-    If you're using format suffixes, make sure to also include
-    the `format=None` keyword argument for each action.
+    This viewset automatically provides `list` and `retrieve` actions.
     """
-
-    def list(self, request):
-        pass
-
-    def create(self, request):
-        pass
-
-    def retrieve(self, request, pk=None):
-        pass
-
-    def update(self, request, pk=None):
-        pass
-
-    def partial_update(self, request, pk=None):
-        pass
-
-    def destroy(self, request, pk=None):
-        pass
+    queryset = RegistrationModel.objects.all()
+    serializer_class = Regist_Serializer
